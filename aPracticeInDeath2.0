@@ -1,0 +1,92 @@
+//Futile Alien Game
+//Working Title: A Practice in Death? 2.0
+//Programmed in C++
+//My alien game for Leah :)
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int score;
+	int distanceT;
+	//distance traveled
+	int distanceFE;
+	//distance from earth
+	int travel;
+	int shieldsUp;
+
+	distanceFE = 100;
+
+	cout << "A Game for Leah Knoble" << endl;
+	cout << ":)" << endl;
+	cout << "\n" << endl;
+	cout << "You've been travelling for ages in the outermost reaches of space.\n At this point you just want to go home." << endl;
+	cout << "How far is home, you ask?" << endl;
+	cout << "About 100 miles." << endl;
+	cout << "Do you wish to travel? \n 1 = 'yeah, man!' and 2 = 'nah, bro.'\n" << endl;
+	cin >> travel;
+
+	do
+	{
+		if (travel == 1)
+		{
+			cout << "How far would you like to travel?" << endl;
+			cin >> distanceT;
+
+			if (distanceT >= 100)
+			{
+				cout << "You over exerted yourself and died.\n :'( " << endl;
+				cout << "Game Over." << endl;
+				cout << "I'll miss you." << endl;
+
+				distanceFE = 0;
+			}
+
+			if (distanceT < 100)
+			{
+				distanceFE = 100 - distanceT;
+				cout << "Oh no! The mother fucking aliens are coming! Do you want to put up your shields?" << endl;
+				cout << "1 = 'Hell yeah.' 2 = 'I mean, whatever. Futile anyway.'" << endl;
+				cin >> shieldsUp;
+
+				if (shieldsUp == 1)
+				{
+					cout << "Woo! Killed them, aliens!\n Now, would you like to travel further?" << endl;
+					cout << "1 = 'On the road again!' 2 = 'Nope. I quit. I do not want to fight aliens again." << endl;
+					cin >> travel;
+
+					if (travel == 1)
+					{
+						distanceFE = distanceFE - distanceT;
+						cout << " Awwww yeah!" << endl;
+					}
+
+					if (travel == 2)
+					{
+						cout << "Fine. Have fun rotting in space. Tears are stinging my eyes." << endl;
+						distanceFE = 0;
+					}
+				}
+
+				if (shieldsUp == 2)
+				{
+					cout << "You bet it is with that lame-ass attitude. Now you're dead and I'm crying. You suck." << endl;
+				}
+			}
+		}
+
+		if (travel == 2)
+		{
+			cout << "FINE! FUCKING DIE THERE IN THE WASTELAND! I GIVE NO SHITS!\n I don't mean that I love you!\n Please save your--" << endl;
+
+			distanceFE = 0;
+		}
+	} while (distanceFE != 0);
+	
+	
+	cout << "The End." << endl;
+
+	return 0;
+}

@@ -1,0 +1,64 @@
+//Futile Alien Game
+//Working Title: A Practice in Death
+//Programmed in C++
+//My alien game for Leah :)
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int score;
+	int distance;
+	int travel;
+	int shieldsUp;
+
+	cout << "You've been travelling for ages in the outermost reaches of space.\n At this point you just want to go home." << endl;
+	cout << "How far is home, you ask?" << endl;
+	cout << "About 100 miles." << endl;
+	cout << "Do you wish to travel? \n 1 = 'yeah, man!' and 2 = 'nah, bro.'\n" << endl;
+	cin >> travel;
+
+	if (travel == 1 )
+	{
+		cout << "How far would you like to travel?" << endl;
+		cin >> distance;
+
+		if (distance >= 100)
+		{
+			cout << "You over exerted yourself and died.\n :'( " << endl;
+			cout << "Game Over." << endl;
+			cout << "I'll miss you." << endl;
+		}
+
+		if (distance < 100)
+		{
+			cout << "Oh no! The mother fucking aliens are coming! Do you want to put up your shields?" << endl;
+			cout << "1 = 'Hell yeah.' 2 = 'I mean, whatever. Futile anyway.'" << endl;
+			cin >> shieldsUp;
+
+			if (shieldsUp == 1)
+			{
+				cout << "Woo! Killed them, aliens!\n But, you're out of fuel and day anyway. Sad day. :'(" << endl;
+			}
+
+			if (shieldsUp == 2)
+			{
+				cout << "You bet it is with that lame-ass attitude. Now you're dead and I'm crying. You suck." << endl;
+			}
+		}
+	}
+
+	if (travel == 2)
+	{
+		cout << "FINE! FUCKING DIE THERE IN THE WASTELAND! I GIVE NO SHITS!\n I don't mean that I love you!\n Please save your--" << endl;
+	}
+	
+	score = 100 - distance;
+
+	cout << "Your score was: " << score << endl;
+	cout << "Congrats." << endl;
+
+	return 0;
+}

@@ -9,84 +9,88 @@ using namespace std;
 
 int main()
 {
-	int score;
-	int distanceT;
-	//distance traveled
 	int distanceFE;
 	//distance from earth
 	int travel;
-	int shieldsUp;
-
+    //whether or not the player wishes to travel
+    srand (time(NULL));
+    //should, in theory, generate the random seed
+    int aliensAttack, winOrLose;
+    //the random chance of aliens attacking and or winning or loosing a fight against them
+	int fightOrFlight;
+    //the choice to fight the aliens or run away
+    
 	distanceFE = 100;
-
+    
 	cout << "A Game for Leah Knoble" << endl;
 	cout << ":)" << endl;
 	cout << "\n" << endl;
-	cout << "You've been travelling for ages in the outermost reaches of space.\n At this point you just want to go home." << endl;
+	cout << "You've been travelling for ages in the outermost reaches of space.\nAt this point you just want to go home." << endl;
 	cout << "How far is home, you ask?" << endl;
-	cout << "About 100 miles." << endl;
-	cout << "Do you wish to travel? \n 1 = 'yeah, man!' and 2 = 'nah, bro.'\n" << endl;
-	cin >> travel;
-
+	cout << "About 100 lightyears away." << endl;
+    
 	do
 	{
-		if (travel == 1)
+		cout << "Wanna get moving?\n1 = 'yeah, man!' and 2 = 'nah, bro.'\n" << endl;
+        cin >> travel;
+        if (travel == 1)
 		{
-			cout << "How far would you like to travel?" << endl;
-			cin >> distanceT;
-
-			if (distanceT >= 100)
-			{
-				cout << "You over exerted yourself and died.\n :'( " << endl;
-				cout << "Game Over." << endl;
-				cout << "I'll miss you." << endl;
-
-				distanceFE = 0;
-			}
-
-			if (distanceT < 100)
-			{
-				distanceFE = 100 - distanceT;
-				cout << "Oh no! The mother fucking aliens are coming! Do you want to put up your shields?" << endl;
-				cout << "1 = 'Hell yeah.' 2 = 'I mean, whatever. Futile anyway.'" << endl;
-				cin >> shieldsUp;
-
-				if (shieldsUp == 1)
-				{
-					cout << "Woo! Killed them, aliens!\n Now, would you like to travel further?" << endl;
-					cout << "1 = 'On the road again!' 2 = 'Nope. I quit. I do not want to fight aliens again." << endl;
-					cin >> travel;
-
-					if (travel == 1)
-					{
-						distanceFE = distanceFE - distanceT;
-						cout << " Awwww yeah!" << endl;
-					}
-
-					if (travel == 2)
-					{
-						cout << "Fine. Have fun rotting in space. Tears are stinging my eyes." << endl;
-						distanceFE = 0;
-					}
-				}
-
-				if (shieldsUp == 2)
-				{
-					cout << "You bet it is with that lame-ass attitude. Now you're dead and I'm crying. You suck." << endl;
-				}
-			}
-		}
-
-		if (travel == 2)
-		{
-			cout << "FINE! FUCKING DIE THERE IN THE WASTELAND! I GIVE NO SHITS!\n I don't mean that I love you!\n Please save your--" << endl;
-
-			distanceFE = 0;
-		}
-	} while (distanceFE != 0);
+			cout << "\nHoookay! Let's travel!" << endl;
+            
+            distanceFE = distanceFE - 20;
+            
+            cout << "\nDistance from earth: " << distanceFE << "lightyears\n" << endl;
+            cout << "Making progress, kid!" << endl;
+            
+            aliensAttack = rand() % 5;
+            
+            if (aliensAttack < 5)
+            {
+                cout << "\nOh shit! Aliens! We got two options: fight and hope we don't die, which is completely possible,\nor run away and lose some distance from earth" << endl;
+                cout << "1 = fight, 2 = flight" << endl;
+                cin >> fightOrFlight;
+                
+                if (fightOrFlight == 1)
+                {
+                    cout << "\nLet's fight the man!\n" << endl;
+                    cout << "FOR THE WIN!!!" << endl;
+                    
+                    winOrLose = rand() % 20 + 1;
+                    
+                    if (winOrLose >= 13)
+                    {
+                        cout << "Aw fuck yeah!" << endl;
+                        cout << "Eat that alien scum!" << endl;
+                        cout << "I think we got them kid! We should get out of here before more come." << endl;
+                    }
+                    
+                    if (winOrLose < 13)
+                    {
+                        cout << "Kid?\n Kid?\n Kid say something!" << endl;
+                        cout << "..." <<endl;
+                        cout << "..." <<endl;
+                        cout << "..." <<endl;
+                        cout << "I'll miss you..." <<endl;
+                        
+                        distanceFE = 0;
+                    }
+                }
+                
+                if (fightOrFlight == 2)
+                {
+                    cout << "Let's make like a tissue and fuckin' boogey!" << endl;
+                    
+                    distanceFE = distanceFE + 10;
+                    
+                    cout << "Distance from earth: " << distanceFE << "light years" << endl;
+                    cout << "Okay, so we're away from the aliens. However, I'm sure there are more lurking around the corner of endless space." << endl;
+                }
+            }
+        }
+    } while (distanceFE > 0);
 	
 	
-	cout << "The End." << endl;
-
+	cout << "Welcome to The End." << endl;
+    
 	return 0;
-}
+    }
